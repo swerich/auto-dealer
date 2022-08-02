@@ -39,5 +39,4 @@ Team:
 
 ## Sales microservice
 
-Explain your models and integration with the inventory
-microservice, here.
+Add one more line
