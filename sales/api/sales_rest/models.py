@@ -27,7 +27,7 @@ class SaleRecord(models.Model):
     
     sales_person = models.ForeignKey(
         SalesPerson,
-        related_name='+',
+        related_name='sales_person',
         in_delete=models.CASCADE,
     )
     
