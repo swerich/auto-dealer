@@ -4,43 +4,37 @@ import sys
 import time
 import json
 import requests
-from inventory.api.inventory_rest.models import Automobile
-
-
 
 sys.path.append("")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sales_project.settings")
 django.setup()
 
-
 from sales_rest.models import AutomobileVO
-# Import models from sales_rest, here.
-# from sales_rest.models import Something
 
 def get_automobiles():
-    response = requests.get('http://inventory-api:8000/api/automobiles/')
+    response = requests.get("http://inventory-api:8000/api/automobiles/")
     content = json.loads(response.content)
-    for car in content["automobiles"]:
+    for auto in content["autos"]:
         try:
             AutomobileVO.objects.update_or_create(
-                import_href= Automobile['href']
+                import_href=auto["href"],
                 defaults={
-                    "vin": automobile["vin"],
-                }
+                    "vin": auto["vin"],
+                    "is_sold": auto["is_sold"]
+                },
             )
         except Exception as e:
-            print(e, file=sys.stderr)
-
+            print("ERROR", e, file=sys.stderr)
+        print("SUCCESS", auto)
 
 def poll():
     while True:
         print('Sales poller polling for data')
         try:
-            # Write your polling logic, here
-            pass
+            get_automobiles()
         except Exception as e:
             print(e, file=sys.stderr)
-        time.sleep(60)
+        time.sleep(15)
 
 
 if __name__ == "__main__":
