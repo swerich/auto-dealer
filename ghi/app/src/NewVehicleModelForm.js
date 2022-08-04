@@ -54,7 +54,7 @@ class NewVehicleModelForm extends React.Component {
     this.setState({ manufacturer: value });
   }
 
-  
+
   handleChangePicture(event) {
     const value = event.target.value;
     this.setState({ picture_url: value });
@@ -77,7 +77,7 @@ class NewVehicleModelForm extends React.Component {
       <div className="row">
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
-            <h1>Add a Vehicle Model</h1>
+            <h1>Add a vehicle model</h1>
             <form onSubmit={this.handleSubmit} id="create-vehicle-model-form">
               <div className="form-floating mb-3">
                 <input onChange={this.handleChangeName} value={this.state.name} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
