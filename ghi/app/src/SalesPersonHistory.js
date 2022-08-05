@@ -13,12 +13,14 @@ class SalesPersonHistory extends React.Component {
     handleSalesPersonChange(event) {
         const value = event.target.value;
         this.setState({salesPerson: value})
+        console.log(value)
     }
 
     async getRecords() {
         const salesResponse = await fetch(`http://localhost:8090/api/sales_people/${this.state.salesPerson}/`);
         if (salesResponse.ok) {
             const salesData = await salesResponse.json();
+            console.log(salesData)
             this.setState({
                 'sales': salesData.sales,
             })

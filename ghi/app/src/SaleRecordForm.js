@@ -86,16 +86,7 @@ class SaleRecordForm extends React.Component {
             const autodata = await autoresponse.json();
             console.log("autoDATA", autodata)
 
-            // let filteredAutos = {}
-            // let filtered = []
-            // for (let autos in autodata) {
-            //     console.log("autos", autodata[autos])
-            //     for (let i = 0; i < (autodata[autos]).length; i++) {
-            //         if (autodata[autos][i]["is_sold"] === false) {
-            //             filtered.push(autodata[autos][i])
-            //         }
-            //     }
-            // filteredAutos[autos] = filtered
+            
             this.setState({automobiles: autodata.autos})
             console.log(this.state.automobiles)
         }
@@ -165,11 +156,11 @@ class SaleRecordForm extends React.Component {
                                         })}
                                     </select>
                                 </div>
-                                {/* <div className="form-floating mb-3">
+                                <div className="form-floating mb-3">
                                     <input onChange={this.handlePriceChange} value={this.state.price} placeholder="Price" required type="number" name="price"
                                         id="price" className="form-control"/>
                                     <label htmlFor="price">Price</label>
-                                </div> */}
+                                </div>
                                 <button className="btn btn-primary">Create</button>
                             </form>
                         </div>
