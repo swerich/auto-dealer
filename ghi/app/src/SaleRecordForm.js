@@ -40,13 +40,13 @@ class SaleRecordForm extends React.Component {
     async handleSubmit(event) {
         event.preventDefault();
         const data = {...this.state};
-        data.sales_people = data.salesPerson;
+        data.person = data.salesPerson;
         delete data.customers;
         delete data.salesPeople;
         delete data.salesPerson;
         delete data.automobiles;
 
-        const salesUrl = 'http://localhost:8090/api/sales/new/';
+        const salesUrl = 'http://localhost:8090/api/sales/';
 
         const fetchConfig = {
             method: "post",
@@ -56,56 +56,69 @@ class SaleRecordForm extends React.Component {
             },
         };
         const response = await fetch(salesUrl, fetchConfig);
-        if (response.ok) {
-            const newSale = await response.json();
 
-            const cleared = {
-                automobile: '',
-                salesPerson: '',
-                customer: '',
-                price: '',             
-            };
-            this.setState(cleared);
+        let autoUrl = 'http://localhost:8100/api/automobiles/${data.automobile}/';
+        let config = {
+            method: "PUT",
+            body: JSON.stringify({is_sold: true}),
+            'Content-Type': 'applications/json',
+        }
+        let autoResponse = await fetch(autoUrl, config);
+        if (autoResponse.ok && response.ok) {
+            const newSale = await response.json();
+        
+        const cleared = {
+            automobile: '',
+            salesPerson: '',
+            customer: '',
+            price: '',             
+        };
+        this.setState(cleared);
+
         }
     }
 
     async componentDidMount() {
         const autoresponse = await fetch('http://localhost:8100/api/automobiles/');
-        console.log("RESPONSE", autoresponse)
+        
     
         if(autoresponse.ok) {
             const autodata = await autoresponse.json();
+            console.log("autoDATA", autodata)
 
-            let filteredAutos = {}
-            let filtered = []
-            for (let autos in autodata) {
-                console.log("autos", autodata[autos])
-                for (let i = 0; i < (autodata[autos]).length; i++) {
-                    if (autodata[autos][i]["is_sold"] === false) {
-                        filtered.push(autodata[autos][i])
-                    }
-                }
-            filteredAutos[autos] = filtered
-            this.setState({'automobiles': filteredAutos.autos})
+            // let filteredAutos = {}
+            // let filtered = []
+            // for (let autos in autodata) {
+            //     console.log("autos", autodata[autos])
+            //     for (let i = 0; i < (autodata[autos]).length; i++) {
+            //         if (autodata[autos][i]["is_sold"] === false) {
+            //             filtered.push(autodata[autos][i])
+            //         }
+            //     }
+            // filteredAutos[autos] = filtered
+            this.setState({automobiles: autodata.autos})
+            console.log(this.state.automobiles)
         }
-    }
-
-        const salesPersonResponse = await fetch('http://localhost:8090/api/sales_people/');
-
+        const salesPersonResponse = await fetch('http://localhost:8090/api/sales_person/');
+    
         if(salesPersonResponse.ok) {
             const salesPersonData = await salesPersonResponse.json();
             console.log("SALESPERSONDATA", salesPersonData)
-            this.setState({'salesPeople': salesPersonData.sales_people})
+            this.setState({salesPeople: salesPersonData.sales_person})
+            console.log(this.state.salesPeople)
         }
-
+    
         const customerResponse = await fetch('http://localhost:8090/api/customers/')
-
+    
         if(customerResponse.ok) {
             const customerData = await customerResponse.json();
             console.log("customerData", customerData)
-            this.setState({'customers': customerData.customers})
+            this.setState({customers: customerData.Customers})
+            console.log("customer", this.state.customers)
         }
     }
+    
+
 
     render () {
         return (
@@ -119,6 +132,7 @@ class SaleRecordForm extends React.Component {
                                     <select onChange={this.handleAutomobileChange} value={this.state.automobile} required name="automobile" id="automobile" className="form-select">
                                         <option value="">Choose an automobile</option>
                                         {this.state.automobiles.map(automobile => {
+                                            console.log("some string or something", automobile)
                                             return (
                                                 <option key={automobile.vin} value={automobile.vin}>
                                                     {automobile.vin}
@@ -151,11 +165,11 @@ class SaleRecordForm extends React.Component {
                                         })}
                                     </select>
                                 </div>
-                                <div className="form-floating mb-3">
+                                {/* <div className="form-floating mb-3">
                                     <input onChange={this.handlePriceChange} value={this.state.price} placeholder="Price" required type="number" name="price"
                                         id="price" className="form-control"/>
                                     <label htmlFor="price">Price</label>
-                                </div>
+                                </div> */}
                                 <button className="btn btn-primary">Create</button>
                             </form>
                         </div>
@@ -163,7 +177,7 @@ class SaleRecordForm extends React.Component {
                 </div>
             </div>
         )
-    }
-}
+    }}
+
 
 export default SaleRecordForm;

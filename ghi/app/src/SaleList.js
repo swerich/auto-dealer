@@ -7,7 +7,7 @@ class SalesList extends React.Component {
     }
 
     async componentDidMount() {
-        const salesResponse = await fetch(`http://localhost:8090/api/sales_person_record/1/`);
+        const salesResponse = await fetch(`http://localhost:8090/api/sales/`);
         if (salesResponse.ok) {
         const salesData = await salesResponse.json();
         console.log(salesData);
@@ -36,7 +36,7 @@ class SalesList extends React.Component {
                                 <td>{sale.sales_person.name}</td>
                                 <td>{sale.sales_person.employee_number}</td>
                                 <td>{sale.customer.name}</td>
-                                <td>{sale.automobile.vin}</td>
+                                <td>{sale.vin}</td>
                                 <td>${sale.price}</td>
                             </tr>
                         );

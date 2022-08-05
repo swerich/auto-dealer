@@ -13,6 +13,8 @@ function Nav() {
         <NavLink className="navbar-brand" to="/manufacturers">Manufacturer List</NavLink>
         <NavLink className="navbar-brand" to="/sales">All Sales</NavLink>
         <NavLink className="navbar-brand" to="/customers/new">Add a customer</NavLink>
+        <NavLink className="navbar-brand" to="/sales/new">Record a new sale</NavLink>
+
         
 
         

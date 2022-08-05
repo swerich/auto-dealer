@@ -35,12 +35,15 @@ class CustomerEncoder(ModelEncoder):
 class SaleRecordEncoder(ModelEncoder):
     model = SaleRecord
     properties = [
-        "vin",
+        # "vin",
         "customer",
         "price",
         "sales_person",
         "id",
     ]
+    def get_extra_data(self, o):
+        return {"vin": o.automobile.vin}
+    
     encoders = {
         "automobile": AutomobileVOEncoder(),
         "customer": CustomerEncoder(),
