@@ -51,9 +51,9 @@ def api_list_service_appointments(request):
         )
     else: #POST
         content = json.loads(request.body)
-
+        print("content", content)
         try:
-            automobile = AutomobileVO.get(import_href=content["automobile"])
+            automobile = AutomobileVO.objects.get(vin=content["vin"])
             content["automobile"] = automobile
         except AutomobileVO.DoesNotExist:
             return JsonResponse(

@@ -4,19 +4,22 @@ class AppointmentList extends React.Component {
     constructor(props) {
         super(props) 
         this.state = {
-            automobiles: [],
+            appointments: [],
         }
     }
 
     async getAppointments() {
-        const autoURL = 'http://localhost:8080/api/service_appointments/'
+        const autoURL = 'http://localhost:8080/api/service_appointments'
         try {
             const autoResponse = await fetch(autoURL);
             if (autoResponse.ok) {
                 const autoData = await autoResponse.json()
+                console.log("Junk", autoData)
                 this.setState({
-                    appointments: autoData.appts
+                    appointments: autoData.appts,
                 })
+            } else {
+                console.log("something here")
             }
         } catch (e) {
             console.error(e);
@@ -50,8 +53,8 @@ class AppointmentList extends React.Component {
                                     <td>{appointment.time.split("T")[1].slice(0, 5)}</td>
                                     <td>{appointment.technician.name}</td>
                                     <td>{appointment.reason}</td>
-                                    <td>{(appointment.vip)? "False" :"True"}</td>
-                                    <td>{appointment.status}</td>
+                                    {/* <td>{(appointment.vip)? "False" :"True"}</td>
+                                    <td>{appointment.status}</td> */}
                                 </tr>
                             )
                         })}

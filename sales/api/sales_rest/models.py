@@ -4,7 +4,7 @@ from django.db import models
 
     
 class AutomobileVO(models.Model):
-    vin = models.Charfield(max_length=17, unique=True)
+    vin = models.CharField(max_length=17, unique=True)
     import_href = models.CharField(max_length=200)
     
 class SalesPerson(models.Model):

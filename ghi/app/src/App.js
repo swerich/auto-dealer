@@ -8,7 +8,9 @@ import NewVehicleModelForm from './NewVehicleModelForm';
 import AutomobileList from './AutomobileList';
 import ManufacturerForm from './ManufacturerForm';
 import AppointmentsList from './AppointmentsList';
-// import AppointmentForm from '.AppointmentsForm';
+import AppointmentForm from './AppointmentForm';
+import ServiceHistory from './ServiceHistory';
+import NewTechnicianForm from './NewTechnicianForm';
 
 function App() {
   return (
@@ -22,11 +24,11 @@ function App() {
           <Route path="/manufacturers/new" element={<ManufacturerForm />} />
           <Route path="/manufacturers" element={<ManufacturerList />} />
           <Route path="/appointments" element={<AppointmentsList />} />
-          {/* <Route path="/appointments/new" element={<AppointmentForm />} /> */}
-
+          <Route path="/appointments/new" element={<AppointmentForm />} />
+          <Route path="/service_history" element={<ServiceHistory />} />
           <Route path="/models" element={<VehicleModels />} />
           <Route path="/models/new" element={<NewVehicleModelForm />} />
-
+          <Route path="/technicians" element={<NewTechnicianForm />} />
 
 
         </Routes>
