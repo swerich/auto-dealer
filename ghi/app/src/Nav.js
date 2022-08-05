@@ -11,7 +11,7 @@ function Nav() {
         <NavLink className="navbar-brand" to="/manufacturers/new">Manufacturer Form</NavLink>
         <NavLink className="navbar-brand" to="/manufacturers">Manufacturer List</NavLink>
         <NavLink className="navbar-brand" to="/models/create">Add a vehicle model</NavLink>
-
+        <NavLink className="navbar-brand" to="/appointments">Service Appointment List</NavLink>
         
         <NavLink className="navbar-brand" to="/models/new">Add a Vehicle Model</NavLink>
 
