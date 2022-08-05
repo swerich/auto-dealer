@@ -10,6 +10,16 @@ class ManufacturerForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChangeName = this.handleChangeName.bind(this);
     }
+    async componentDidMount() {
+        const url = 'http://localhost:8100/api/manufacturers/';
+
+        const response = await fetch(url);
+
+        if (response.ok) {
+            const data = await response.json();
+            this.setState({ manufacturers: data.manufacturers});
+        }
+    }
 
     async handleSubmit(event) {
         event.preventDefault();

@@ -142,7 +142,31 @@ def api_customer(request):
             return response
         
             
+            
+@require_http_methods(["GET"])
+def api_sales_person_record(request, sales_person_id=None):
+    if request.method == "GET":
+        if sales_person_id == None:
+            return JsonResponse(
+                {"Message": "Invalid sales person ID"},
+                status=400,
+            )
+        else:
+            sales = SaleRecord.objects.filter(sales_person=sales_person_id)
+            return JsonResponse(
+                {"Sales": sales},
+                encoder = SaleRecordEncoder,
+                safe=False,
+            )
 
+@require_http_methods(["GET"])
+def api_automobile_vos(request):
+    if request.method == "GET":
+        autos = AutomobileVO.objects.all()
+        return JsonResponse(
+            {"Autos": autos},
+            encoder=AutomobileVOEncoder,
+        )
             
             
             

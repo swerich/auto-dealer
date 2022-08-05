@@ -9,7 +9,12 @@ function Nav() {
         <NavLink className="navbar-brand" to="/automobiles/new">Automobile Form</NavLink>
         <NavLink className="navbar-brand" to="/automobiles">Automobile List</NavLink>
         <NavLink className="navbar-brand" to="/manufacturers/new">Manufacturer Form</NavLink>
+        <NavLink className="navbar-brand" to="/sales_people/new">Add A Sales Person</NavLink>
         <NavLink className="navbar-brand" to="/manufacturers">Manufacturer List</NavLink>
+        <NavLink className="navbar-brand" to="/sales">All Sales</NavLink>
+        <NavLink className="navbar-brand" to="/customers/new">Add a customer</NavLink>
+        
+
         
 
 
@@ -18,9 +23,7 @@ function Nav() {
         <NavLink className="navbar-brand" to="/models/new">Add a Vehicle Model</NavLink>
 
 
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           </ul>
