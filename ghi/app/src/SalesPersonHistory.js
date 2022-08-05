@@ -15,6 +15,17 @@ class SalesPersonHistory extends React.Component {
         this.setState({salesPerson: value})
     }
 
+    async getRecords() {
+        const salesResponse = await fetch(`http://localhost:8090/api/sales_people/${this.state.salesPerson}/`);
+        if (salesResponse.ok) {
+            const salesData = await salesResponse.json();
+            this.setState({
+                'sales': salesData.sales,
+            })
+        }
+    }
+
+
 
     async componentDidMount() {
         const salesPersonResponse = await fetch('http://localhost:8090/api/sales_people/');

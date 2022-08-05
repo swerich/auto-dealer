@@ -11,6 +11,7 @@ import SaleList from './SaleList'
 import SalesPersonForm from './SalesPersonForm';
 import SaleRecordForm from './SaleRecordForm';
 import NewCustomerForm from './NewCustomerForm';
+import SalesPersonHistory from './SalesPersonHistory';
 
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
           <Route path="/manufacturers" element={<ManufacturerList />} />
           <Route path="/sales/new" element={<SaleRecordForm />} />
           <Route path="/customers/new" element={<NewCustomerForm />} />
+          <Route path="/sales_people" element={<SalesPersonHistory />} />
+
 
 
 

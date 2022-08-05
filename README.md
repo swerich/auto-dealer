@@ -1,4 +1,23 @@
-# CarCar
+# CarCar 
+    This project is a frontend/backend application that can be used by a car dealership to manage inventory, sales and service. It is useful, in that repect.
+
+# Getting started
+   Open a terminal and CD into a directory where you'd like to clone the project files, and run the following commands in your terminal:
+    
+        1. git clone https://gitlab.com/rich5D/project-beta.git
+        2. cd project-beta
+        3. docker-compose build
+        4. docker-compose up
+    
+    In your browser, go to: localhost:3000/
+
+
+
+
+
+
+
+# CarCar Planning
 
 Team:
 
@@ -42,52 +61,52 @@ Team:
 Explain your models and integration with the inventory
 microservice, here.
 
-[ ] Create Inventory API that provides:
-    [ ] Manufacturer
-    [ ] VehicleModel
-    [ ] Automobile
+[x] Create Inventory API that provides:
+    [x] Manufacturer
+    [x] VehicleModel
+    [x] Automobile
 
 [ ] React based front end app where we write the components to interact with:
-    [ ] Sales services
-    [ ] Inventory service
+    [x] Sales services
+    [x] Inventory service
 
-[ ] Sales API: The restful API to handle sales information
+[x] Sales API: The restful API to handle sales information
 
-[ ] Sales Poller: a poller to use to integrate with other services
+[x] Sales Poller: a poller to use to integrate with other services
 
 Requirements:
 
     Inventory Front-End Requirements
 
     Create React componenets accessible from the navbar to do the following:
-        [ ] Show list of manufacturers
-        [ ] Create a manufacturer
-        [ ] Show a list of vehicle models
-        [ ] Create a vehicle model
-        [ ] Show a list of automobiles in inventory
-        [ ] Create an automobile in inventory
+        [x] Show list of manufacturers
+        [x] Create a manufacturer
+        [x] Show a list of vehicle models
+        [x] Create a vehicle model
+        [x] Show a list of automobiles in inventory
+        [x] Create an automobile in inventory
 
     Sales Requirements
 
         Add a sales person: 
 
-        [ ] Create a form that allows a person to enter the name and employee number for a sales person. When the form is submitted, the sales person is created in the application.
-        [ ] Create a link in the navbar to get to the Add a Sales Person form
+        [x] Create a form that allows a person to enter the name and employee number for a sales person. When the form is submitted, the sales person is created in the application.
+        [x] Create a link in the navbar to get to the Add a Sales Person form
 
         Add a potential customer:
 
-        [ ] Create a form that allows a person to enter the name, address, and phone number for a potential customer. When the form is submitted, the customer is created in the application.
-        [ ] Create a link in the navbar to get to the Add a potential customer form
+        [x] Create a form that allows a person to enter the name, address, and phone number for a potential customer. When the form is submitted, the customer is created in the application.
+        [x] Create a link in the navbar to get to the Add a potential customer form
 
         Create a sales recordL
 
-        [ ] Create a form that associates an automobile that came from the inventory and has not yet been sold, a sales person, and a customer with a price to record the sale of an automobile. When the form is submitted, the sales record is stored in the application.
-        [ ] Create a link in the navbar to get to the Create a sale record form
+        [x] Create a form that associates an automobile that came from the inventory and has not yet been sold, a sales person, and a customer with a price to record the sale of an automobile. When the form is submitted, the sales record is stored in the application.
+        [x] Create a link in the navbar to get to the Create a sale record form
         
         List all sales:
 
-        [ ] Show a page that lists all sales showing the sales person's first name and employee number, the purchaser's name, the automobile VIN and the price of the sale.
-        [ ] Create a link in the navbar to get to the list of all sales
+        [x] Show a page that lists all sales showing the sales person's first name and employee number, the purchaser's name, the automobile VIN and the price of the sale.
+        [x] Create a link in the navbar to get to the list of all sales
 
         List a sales person's sales history:
 
