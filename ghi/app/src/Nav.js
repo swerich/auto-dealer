@@ -11,6 +11,7 @@ function Nav() {
         <NavLink className="navbar-brand" to="/manufacturers/new">Manufacturer Form</NavLink>
         <NavLink className="navbar-brand" to="/sales_people/new">Add A Sales Person</NavLink>
         <NavLink className="navbar-brand" to="/manufacturers">Manufacturer List</NavLink>
+<<<<<<< HEAD
         <NavLink className="navbar-brand" to="/sales_people">Sales person history</NavLink>
 
         <NavLink className="navbar-brand" to="/sales">All Sales</NavLink>
@@ -24,8 +25,14 @@ function Nav() {
 
 
         
+=======
+        <NavLink className="navbar-brand" to="/models/create">Add a vehicle model</NavLink>
+        <NavLink className="navbar-brand" to="/appointments">Service Appointment List</NavLink>
+        <NavLink className="navbar-brand" to="/appointments/new">Add Service Appointment</NavLink>
+>>>>>>> 79599e38c02a9d3e5d7f88c97a0b5be00dc71dcc
         <NavLink className="navbar-brand" to="/models/new">Add a Vehicle Model</NavLink>
-
+        <NavLink className="navbar-brand" to="/service_history">Service History</NavLink>
+        <NavLink className="navbar-brand" to="/technicians">Technician</NavLink>
 
         
         <div className="collapse navbar-collapse" id="navbarSupportedContent">

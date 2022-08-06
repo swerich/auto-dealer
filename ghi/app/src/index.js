@@ -13,7 +13,9 @@ root.render(
 async function loadInventory() {
   const manufacturerResponse = await fetch('http://localhost:8100/api/manufacturers/');
   const automobileResponse = await fetch('http://localhost:8100/api/automobiles/');
-  let manufacturerData, automobileData;
+  const serviceResponse = await fetch('http://localhost:8080/api/service/');
+  
+  let manufacturerData, automobileData, serviceData;
 
   if (manufacturerResponse.ok) {
     manufacturerData = await manufacturerResponse.json();
@@ -25,6 +27,12 @@ async function loadInventory() {
     automobileData = await automobileResponse.json();
   } else {
     console.error(automobileResponse);
+  }
+
+  if (serviceResponse.ok) {
+    serviceData = await serviceResponse.json();
+  } else {
+    console.error(serviceResponse);
   }
 
   root.render(
